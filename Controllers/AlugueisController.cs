@@ -153,6 +153,31 @@ public class AlugueisController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = aluguel.Id }, response);
     }
 
+    // PUT: api/alugueis/5 — edita um aluguel em aberto (datas e valor da diária)
+    [HttpPut("{id:int}")]
+    public async Task<IActionResult> Update(int id, AluguelUpdateDto dto)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        var aluguel = await _context.Alugueis.FindAsync(id);
+        if (aluguel is null)
+            return NotFound(new { mensagem = $"Aluguel com id {id} não encontrado." });
+
+        if (aluguel.DataDevolucao is not null)
+            return Conflict(new { mensagem = "Não é possível editar um aluguel já devolvido." });
+
+        if (dto.DataPrevistaDevolucao < dto.DataRetirada)
+            return BadRequest(new { mensagem = "A data prevista de devolução não pode ser anterior à data de retirada." });
+
+        aluguel.DataRetirada = dto.DataRetirada;
+        aluguel.DataPrevistaDevolucao = dto.DataPrevistaDevolucao;
+        aluguel.ValorDiaria = dto.ValorDiaria;
+
+        await _context.SaveChangesAsync();
+        return NoContent();
+    }
+
     // PUT: api/alugueis/5/devolucao — fecha a locação
     [HttpPut("{id:int}/devolucao")]
     public async Task<IActionResult> RegistrarDevolucao(int id, AluguelDevolucaoDto dto)
@@ -225,4 +250,3 @@ public class AlugueisController : ControllerBase
             });
     }
 }
-

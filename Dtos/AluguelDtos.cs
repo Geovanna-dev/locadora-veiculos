@@ -21,6 +21,20 @@ public class AluguelCreateDto
     public decimal ValorDiaria { get; set; }
 }
 
+// Usado na edição de um aluguel em aberto (PUT /api/alugueis/{id})
+public class AluguelUpdateDto
+{
+    [Required]
+    public DateTime DataRetirada { get; set; }
+
+    [Required]
+    public DateTime DataPrevistaDevolucao { get; set; }
+
+    [Required]
+    [Range(0.01, double.MaxValue, ErrorMessage = "O valor da diária deve ser maior que zero.")]
+    public decimal ValorDiaria { get; set; }
+}
+
 // Usado no endpoint específico de devolução (PUT /api/alugueis/{id}/devolucao)
 public class AluguelDevolucaoDto
 {
