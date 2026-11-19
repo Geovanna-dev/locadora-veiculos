@@ -1,0 +1,11 @@
+:root { --bs-primary: #1d3557; --bs-primary-rgb: 29,53,87; --accent: #e9a820; }
+body { background: #f4f1ea; font-family: 'Segoe UI', system-ui, sans-serif; }
+.topbar { background: #1d3557; border-bottom: 4px solid var(--accent); }
+.topbar .brand { color: #fff; font-weight: 700; letter-spacing: .5px; }
+.topbar .nav-link { color: #cfd8e6; cursor: pointer; }
+.topbar .nav-link.active { color: #1d3557; background: var(--accent); border-radius: 6px; font-weight: 600; }
+.btn-primary { background: #1d3557; border-color: #1d3557; }
+.btn-primary:hover { background: #152741; }
+.card { border: 0; box-shadow: 0 1px 3px #0002; }
+th { font-size: .8rem; text-transform: uppercase; color: #5b6675; }
+.stat { font-size: 2rem; font-weight: 700; color: #1d3557; }
