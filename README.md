@@ -56,3 +56,17 @@ O projeto utiliza SQL Server Express com Entity Framework Core para persistênci
 3. Execute `dotnet ef database update` para aplicar as migrations
 4. Execute `dotnet run`
 5. Acesse `http://localhost:5273/swagger` para testar as APIs
+
+
+## Front-end (TP2)
+
+1. `cd frontend`
+2. `npm install`
+3. `npm run dev` e acesse `http://localhost:5173` (a API precisa estar rodando em `http://localhost:5273`)
+
+## Wireframes
+
+https://www.figma.com/design/Pz6ScsLEmc0BYXTxuMihyh
+## Wireframes
+
+[Ver wireframes no Figma](https://www.figma.com/design/Pz6ScsLEmc0BYXTxuMihyh)
