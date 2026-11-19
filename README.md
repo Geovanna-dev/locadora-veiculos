@@ -66,7 +66,4 @@ O projeto utiliza SQL Server Express com Entity Framework Core para persistênci
 
 ## Wireframes
 
-https://www.figma.com/design/Pz6ScsLEmc0BYXTxuMihyh
-## Wireframes
-
 [Ver wireframes no Figma](https://www.figma.com/design/Pz6ScsLEmc0BYXTxuMihyh)
